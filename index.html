@@ -3,14 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz</title>
+  <link rel="icon" href="img/icon.png" />
+  <title>RPSV_CODES</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)),
+                  url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding-top: 80px;
+    }
+
+    h1.center-text {
+      color: #fff;
+      font-size: 3rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+    }
+
+    .quiz {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in;
+      gap: 20px;
+    }
+
+    .quiz p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .pili-ka {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .pili-ka label {
+      background: #f0f0f0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .pili-ka input[type="radio"] {
+      display: none;
+    }
+
+    .pili-ka input[type="radio"]:checked + label {
+      background: #ff6767;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(255, 103, 103, 0.4);
+    }
+
+    .btn-submit {
+      background: #ff4747;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #e83c3c;
+      box-shadow: 0 0 10px rgba(255, 71, 71, 0.6);
+    }
+
+    .output-video {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .output-video video {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: none;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 500px) {
+      h1.center-text {
+        font-size: 2rem;
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      .quiz {
+        padding: 20px;
+      }
+
+      .output-video video {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <h1 class="center-text">Quiz Tayo</h1>
   <form class="quiz" id="quizForm">
-    <p>Alam mo yung Feeling na?</p>
+    <p>Alam mo yung feeling na?</p>
     <div class="pili-ka">
       <input type="radio" id="greatest" name="age" value="greatest">
       <label for="greatest">Greatest</label>
@@ -19,7 +143,7 @@
       <label for="gusto">Gustong</label>
 
       <input type="radio" id="mss" name="age" value="miss">
-      <label for="miss">Miss</label>
+      <label for="mss">Miss</label>
     </div>
 
     <input type="submit" value="Submit" class="btn-submit">
@@ -31,140 +155,12 @@
     </div>
   </form>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: rgb(222, 221, 221);
-    }
-
- .quiz {
-  display: flex;
-  width: 500px;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  border: 10px solid;
-  border-image: conic-gradient(
-    red, orange, yellow, green, blue, indigo, violet, red
-  ) 1;
-  animation: rotateBorder 3s linear infinite;
-  flex-direction: column;
-  margin: 50px auto;
-  gap: 10px;
-  padding: 20px;
-}
-
-
-@keyframes rotateBorder {
-  0% {
-    border-image: conic-gradient(
-      red, orange, yellow, green, blue, indigo, violet, red
-    ) 1;
-  }
-  100% {
-    border-image: conic-gradient(
-      violet, red, orange, yellow, green, blue, indigo, violet
-    ) 1;
-  }
-}
-
-
-    .pili-ka {
-
-      display: flex;
-      gap: 10px;
-      width: 100%;
-      
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-    }
-
-    .btn-submit {
-      width: 100px;
-      height: 35px;
-      border: none;
-      box-shadow: 0 0 5px rgb(255, 69, 69);
-      background: rgb(238, 108, 108);
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    .center-text {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 24px;
-    }
-
-    .output-video {
-    
-      height: 200px;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .output-video video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none; 
-    }
-
-  
-
-    @media (max-width: 768px) {
-      .quiz {
-        width: 90%;
-        padding: 15px;
-      }
-
-      .center-text {
-        margin-top: 80px;
-        font-size: 22px;
-      }
-
-      .pili-ka {
-    
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .quiz {
-        width: 95%;
-        padding: 10px;
-      }
-
-      .center-text {
-        margin-top: 60px;
-        font-size: 20px;
-      }
-
-      .btn-submit {
-        width: 100%;
-      }
-
-      .output-video {
-        height: 180px;
-      }
-     
-    }
-  </style>
   <script>
     const form = document.getElementById("quizForm");
 
     form.addEventListener("submit", function(event) {
       event.preventDefault();
 
- 
       const videos = ["video-greatest", "video-gustong", "video-miss"];
       videos.forEach(function(id) {
         const vid = document.getElementById(id);
